@@ -113,9 +113,11 @@ public class EmbeddedLdapRuleTest {
 
     while (list.hasMore()){
       NameClassPair nc = (NameClassPair) list.next();
-      System.out.println(nc.getName());
-    }
+      String user = nc.getName().substring(3,nc.getName().length());
+      LOG.info(user);
 
+      assertEquals(user , "Fake-Eros");
+    }
     context.close();
   }
 
